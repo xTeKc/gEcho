@@ -33,5 +33,13 @@ func echo(conn net.Conn) {
 }
 
 func main() {
-	
+	//bind to TCP port 20080 on all interfaces
+	listener, err := net.Listen("tcp", ":20080")
+	if err != nil {
+		log.Fatalln("Unable to Bind to Port")
+	}
+	log.Println("Listening on 0.0.0.0:20080")
+	for {
+		
+	}
 }
