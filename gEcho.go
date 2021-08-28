@@ -40,6 +40,11 @@ func main() {
 	}
 	log.Println("Listening on 0.0.0.0:20080")
 	for {
-		
+		//wait for connection and create net.Conn on connection
+		conn, err := listener.Accept()
+		log.Println("Received Connection")
+		if err != nil {
+			log.Fatalln("Unable to Accept Connection")
+		}
 	}
 }
