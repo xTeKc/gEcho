@@ -46,5 +46,7 @@ func main() {
 		if err != nil {
 			log.Fatalln("Unable to Accept Connection")
 		}
+		//handle the connection while using go-routine for concurrency
+		go echo(conn)
 	}
 }
