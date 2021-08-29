@@ -17,6 +17,11 @@ func echo(conn net.Conn) {
 	log.Printf("Read %d bytes: %s", len(s), s)
 
 	log.Println("Writing Data")
+	writer := bufio.NewWriter(conn)
+	if _, err := writer.WriterString(s); err != nil {
+		log.Fatalln("Unable to Write Data")
+	}
+	writer.Flush()
 }
 
 
