@@ -25,6 +25,16 @@ func echo(conn net.Conn) {
 }
 
 
+//alt echo func using Copy()
+// func echo (conn, net.Conn) {
+// 	defer conn.Close()
+// 	//copy data from io.Reader to io.Writer via io.Copy()
+// 	if _, err := Copy(conn, conn); err != nil {
+// 		log.Fatalln("Unable to Read/Write Data")
+// 	}
+// }
+
+
 func main() {
 	//bind to TCP port 20080 on all interfaces
 	listener, err := net.Listen("tcp", ":20080")
