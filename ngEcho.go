@@ -8,6 +8,15 @@ import (
 //echo func echoes received data
 func echo(conn net.Conn) {
 	defer conn.Close()
+
+	reader := bufio.NewReader(conn)
+	s, err := reader.ReadString('\n')
+	if err != nil {
+		log.Fatalln("Unable to Read Data")
+	}
+	log.Printf("Read %d bytes: %s", len(s), s)
+
+	log.Println("Writing Data")
 }
 
 
